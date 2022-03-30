@@ -25,8 +25,74 @@ class InsertCubit extends Cubit<InsertState> {
       if (ress!.status == true) {
         ressInsert = ress;
         emit(InsertSuccess(ressInsert!));
-        print(Submit());
-        Submit();
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                content: SizedBox(
+                  height: 358,
+                  width: 300,
+                  child: Column(
+                    children: [
+                      Expanded(
+                          flex: 5,
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 55),
+                                child: Image.asset(
+                                    'img/splash/undraw_mail_sent_re_0ofv 1.png',
+                                    height: 90),
+                              ),
+                              const SizedBox(
+                                height: 26,
+                              ),
+                              const Text(
+                                "Link Verifikasi Terkirim",
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              const Text(
+                                "Link verifikasi akun kamu sudah dikirim \nmelalui email, konfirmasi untuk masuk ke \naplikasi dan mulai menjelajah",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    height: 2),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          )),
+                      Expanded(
+                        child: Container(
+                          width: 300,
+                          color: const Color(0xFFEDAB00),
+                          child: TextButton(
+                              onPressed: () {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => LoginPage()),
+                                    (route) => false);
+                              },
+                              child: const Text(
+                                "Lanjutkan",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15),
+                              )),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              );
+            });
+        // print(Submit());
+        // Submit();
       } else if (ress.status == false) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text('${ress.message}'),
@@ -49,7 +115,7 @@ class InsertCubit extends Cubit<InsertState> {
   }
 }
 
-class Submit {
+/*class Submit {
   void submit(BuildContext context) {
     Dialog alert = Dialog(
       child: SizedBox(
@@ -110,6 +176,68 @@ class Submit {
         ),
       ),
     );
-    showDialog(context: context, builder: (context) => alert);
-  }
-}
+    showDialog(
+        context: context,
+        builder: (context) => Dialog(
+              child: SizedBox(
+                height: 358,
+                width: 300,
+                child: Column(
+                  children: [
+                    Expanded(
+                        flex: 5,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 55),
+                              child: Image.asset(
+                                  'img/splash/undraw_mail_sent_re_0ofv 1.png',
+                                  height: 90),
+                            ),
+                            const SizedBox(
+                              height: 26,
+                            ),
+                            const Text(
+                              "Link Verifikasi Terkirim",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            const Text(
+                              "Link verifikasi akun kamu sudah dikirim \nmelalui email, konfirmasi untuk masuk ke \naplikasi dan mulai menjelajah",
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  height: 2),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        )),
+                    Expanded(
+                      child: Container(
+                        width: 300,
+                        color: const Color(0xFFEDAB00),
+                        child: TextButton(
+                            onPressed: () {
+                              Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => LoginPage()),
+                                  (route) => false);
+                            },
+                            child: const Text(
+                              "Lanjutkan",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15),
+                            )),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ));*/
+

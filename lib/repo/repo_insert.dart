@@ -80,7 +80,8 @@ class RepoAuth {
 
   Future<RessProfil?> getProfil() async {
     try {
-      Response res = await http.get(Uri.parse(apiProfil + '821'));
+      Response res = await http
+          .get(Uri.parse(baseUrl + '/profile?id=${dataGlobal.user!.id}'));
       return RessProfil.fromJson(jsonDecode(res.body));
     } catch (e) {
       log(e.toString());

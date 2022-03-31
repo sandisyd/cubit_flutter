@@ -6,5 +6,5 @@ const String apiFakultas = '$baseUrl/fakultas/getData';
 const String apiTenagaAhli =
     '$baseUrl/fakultas/getTenagaAhli?id_fakultas=1&bidang_id=1';
 const String apiBidangFakultas = '$baseUrl/fakultas/getBidang?id_fakultas=1';
-const String apiProfil = '$baseUrl/profile?id=';
+// const String apiProfil = '$baseUrl';
 const String apiUpdate = '$baseUrl/UpdateUser';

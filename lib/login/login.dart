@@ -89,7 +89,7 @@ class LoginPage extends StatelessWidget {
                       Center(
                         child: BlocBuilder<LoginCubit, LoginState>(
                           builder: (context, state) {
-                            LoginCubit cubit = LoginCubit();
+                            LoginCubit cubit = context.read<LoginCubit>();
                             if (state is LoginLoding) {
                               return const Center(
                                 child: CircularProgressIndicator(),
